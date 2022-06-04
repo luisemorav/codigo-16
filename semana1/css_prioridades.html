@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./estilos.css">
+    <title>CSS</title>
+</head>
+<body>
+    <h1>Prioridades de estilo en CSS</h1>
+    <hr>
+    <table>
+        <tr>
+            <th># Prioridad</th>
+            <th>Origen</th>
+            <th>Selector / Ejemplo</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>!important</td>
+            <td>property: xxxx <i>!important</i>;</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>inline css</td>
+            <td>style="<i class="azul">property: xxxx;</i>"</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>nested id</td>
+            <td>elemento <i class="verde">#id</i> {<i class="azul">property: xxxx;</i>}</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>id</td>
+            <td><i class="verde">#id</i> {<i class="azul">property: xxxx;</i>}</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>nested class</td>
+            <td>elemento <i class="morado">class</i> {<i class="azul">property: xxxx;</i>}</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>class</td>
+            <td><i class="morado">class</i> {<i class="azul">property; xxxx;</i>}</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>tag</td>
+            <td>tag {<i class="azul">property: xxxx;</i>}</td>
+        </tr>
+    </table>
+</body>
+</html>

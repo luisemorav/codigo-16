@@ -1,0 +1,59 @@
+h1 {
+    text-decoration: underline;
+}
+
+h2 {
+    color: blue;
+}
+
+#cabecera1 {
+    color: red;
+}
+
+/* In a simple and short way, one should keep in mind below 2 things:
+
+Inline CSS has a higher priority than embedded and external CSS.
+So final Order is: Value defined as Important > Inline >id nesting > id > class nesting > class > tag nesting > tag */
+
+.parrafos_rojos {
+    color: red;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th {
+    background-color: darkorange;
+    color: white;
+    font-size: large;
+}
+
+th, td {
+    padding: 10px;
+}
+
+td {
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background-color: lightgray;
+}
+
+i {
+    font-style: normal;
+    color: red;
+}
+
+.azul {
+    color: blue;
+}
+
+.verde {
+    color: green;
+}
+
+.morado {
+    color: purple;
+}
