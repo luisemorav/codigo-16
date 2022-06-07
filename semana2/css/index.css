@@ -1,0 +1,84 @@
+h1 {
+    /* font-family */
+    font-family: apple-system, Helvetica, Arial, sans-serif;
+    font-size: 45px;
+    /* font-weight tambien puede recibir numeros
+    iran de 100 a 900 */
+    /* ! Importante: Al poner un peso en font-weight no hay que poner unidades de medida */
+    font-weight: 100;
+    /* text-decoration */
+    text-decoration: underline;
+}
+
+.parrafo {
+    font-family: "Dank Mono", monospace;
+    /* font-size sirve para manejar el tamaño del texto */
+    font-size: 100px;
+    font-weight: bold;
+}
+
+/* 
+RGB => Red Green Blue
+RGBA => Red Green Blue Alpha
+    Alpha: Opacidad 0 - 1
+hsla => Hue Saturation Lightness
+ */
+
+.link-a {
+    font-size: 32px;
+    font-family: monospace;
+    /* al poner none en una propiedad estamos invalidandola */
+    text-decoration: none;
+    /* Con la propiedad color: sirve para poder cambiar el color de un texto */
+    /* Hexadecimal: Es una forma en la cual podemos aplicar un color, basada en 6 dígitos alfanumericos */
+    color: #af0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+ul {
+    background-color: rgba(53, 146, 239, 0.3);
+}
+
+.span-1 {
+    text-decoration: line-through;
+    text-transform: capitalize;
+}
+
+.span-2 {
+    text-decoration: overline;
+}
+
+.span-3 {
+    text-decoration: underline;
+    text-transform: uppercase;
+}
+
+.span-4 {
+    text-decoration: line-through;
+    text-decoration-color: #f01;
+}
+
+.span-5 {
+    text-decoration: overline;
+    background-color: #0ba;
+    text-decoration-color: #fff;
+}
+
+/* 
+lowercase => minusculas
+uppercase => mayusculas
+capitalize => Primera del texto en mayuscula
+
+*/
+
+.span-6 {
+    color: #fff;
+    text-decoration: underline;
+    background-color: rgb(252, 90, 255);
+    text-decoration-color: rgb(225, 183, 0);
+    /* Estamos indicando que el texto sea en minusculas */
+    text-transform: lowercase;
+}
