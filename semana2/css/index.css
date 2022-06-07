@@ -1,7 +1,7 @@
 h1 {
     /* font-family */
-    font-family: apple-system, Helvetica, Arial, sans-serif;
-    font-size: 45px;
+    font-family: "Jost";
+    font-size: 60px;
     /* font-weight tambien puede recibir numeros
     iran de 100 a 900 */
     /* ! Importante: Al poner un peso en font-weight no hay que poner unidades de medida */
@@ -26,7 +26,7 @@ hsla => Hue Saturation Lightness
 
 .link-a {
     font-size: 32px;
-    font-family: monospace;
+    font-family: "Play";
     /* al poner none en una propiedad estamos invalidandola */
     text-decoration: none;
     /* Con la propiedad color: sirve para poder cambiar el color de un texto */
@@ -81,4 +81,33 @@ capitalize => Primera del texto en mayuscula
     text-decoration-color: rgb(225, 183, 0);
     /* Estamos indicando que el texto sea en minusculas */
     text-transform: lowercase;
+}
+
+/* Para que CSS pueda leer una fuente desde un archivo
+tenemos que @font-face esto nos permite cargar una fuente externa y darle
+un nombre para su uso */
+
+/* El font-family en este caso puede ser caulquier nombre
+es una buena prñactica nombrarla por su nombre oficial */
+
+@font-face {
+    /* En este caso font-family es el nombre de la fuente */
+    font-family: "Poppins";
+    /* src => Es el lugar donde esta alojado la fuente */
+    src: url("../fonts/Poppins-Regular.ttf");
+}
+/* Se puede agregar las fuentes necesarias */
+@font-face {
+    font-family: "Poppins-Italic";
+    src: url("../fonts/Poppins-Italic.ttf");
+}
+
+.title-2 {
+    font-family: "Poppins";
+    text-decoration: underline;
+    text-decoration-color: #f01;
+}
+
+.parrafo-2 {
+    font-family: "Poppins-Italic";
 }
