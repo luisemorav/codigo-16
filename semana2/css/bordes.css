@@ -1,0 +1,50 @@
+html {
+    font-size: 40px;
+}
+
+body {
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+p {
+    text-align: center; 
+}
+.solid {
+    border-style: solid;
+    border-color: brown;
+    border-width: 5px;
+
+}
+.dashed {
+    border-style: dashed;
+    border-color: green;
+    border-width: 2px;
+}
+
+.double {
+    border-style: double;
+    border-color: blue;
+}
+
+.left_solid {
+    border-left-style: solid;
+}
+
+.right-dotted {
+    border-right: dotted pink 3px;
+}
+
+.top-dashed {
+    border-top: dashed 2px gray;
+}
+
+.bottom-double {
+    border-bottom: double 5px red;
+}
+
+.mix-left-top {
+    border-style: solid dotted solid dotted;
+    border-width: 4px;
+    border-color: black red blue;
+}
