@@ -1,0 +1,32 @@
+body {
+    font-family: Verdana;
+}
+
+.bg {
+    border-style: solid;
+    height: 300px;
+}
+
+.color-red {
+    background-color: red;
+}
+
+.color-green {
+    background-color: green;
+}
+
+.bg-img {
+    background: url("../../semana1/images/_DSC2234.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.bg-img-back {
+    background-image: url("../images/animales_4.jpg");
+    /* Estamos diciendo que este div tenga un alto de 500px */
+    height: 500px;
+    background-size: cover;
+    /* Esto indica que queremos moostrar la parte central de la imagen */
+    background-position: center;
+    background-repeat: no-repeat;
+}

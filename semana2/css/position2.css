@@ -1,0 +1,48 @@
+body {
+    font-family: Verdana;
+}
+
+/* Al poner el atributo fixed convertimos al elemento en un inline */
+header {
+    position: fixed;
+    height: 100px;
+    width: 100%;
+    z-index: 1;
+}
+
+/* como activamos la opcion de usar top, left, right, bottom */
+/* ! para activar esas opciones debemos tener un position 
+! lo que importa es que el padre tenga algun tipo de position*/
+
+nav {
+    background-color: #333;
+}
+
+ul {
+    padding: 20px;
+}
+
+ul li {
+    /* displauy permite modificar si un elemento es inline o bloque
+    es decir si ocupa parte de la linea o de lado a lado */
+    display: inline;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* padding: es el atributo que nos permite poner un espacio
+de un elemento interno */
+
+div {
+    position: relative;
+    top: 100px;
+    
+}
+
+#nosotros {
+    height: 100vh;
+    background-color: aquamarine;
+}
