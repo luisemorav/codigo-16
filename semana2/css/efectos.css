@@ -1,0 +1,49 @@
+body {
+    background-color: rgb(190, 190, 190);
+}
+
+#contenedor {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(to right, yellow 20%, red, blue 80%);
+    margin: auto;
+}
+
+#contenedor:hover {
+    background: linear-gradient(to top, yellow 20%, red, blue 80%);
+}
+
+h1 {
+    border: 1px black solid;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.sombra {
+    /* derecha / abajo / difuminación / spread / color */
+    box-shadow: 20px 20px 10px -10px rgb(61, 61, 58);
+}
+
+.sombra_texto {
+    /* derecha / abajo / difuminación / color */
+    text-shadow: 10px 10px 5px rgb(26, 26, 26);
+}
+
+#bandera {
+    width: 600px;
+    height: 350px;
+    margin: auto;
+    box-shadow: 30px 20px 15px rgb(84, 83, 83);
+    background: linear-gradient(to right, red 33%, white 33%, white 67%, red 67%);
+}
+
+#circulo {
+    width: 200px;
+    height: 200px;
+    /* background-color: blue; */
+    background: radial-gradient(red, white, red);
+    margin: 60px auto;
+    border-radius: 100px;
+    /* border-top-left-radius: 100px; */
+    filter: blur(10px) grayscale(80%) opacity(0.85);
+}
