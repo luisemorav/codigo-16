@@ -1,0 +1,54 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Outfit", sans-serif;
+}
+
+.contenedor {
+    background-color: hsl(212, 45%, 89%);
+    height: 100vh;
+    position: relative;
+}
+
+.contenedor-interno {
+    background-color: #fff;
+    width: 375px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 16px;
+    box-shadow: 10px 10px 40px gray;
+    margin: auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Estamos diciendo que queremo aplicar el estilo
+a cada elemento que este dentro de este div sin importar
+si es un img, nav, p */
+/* ! * => todo */
+.contenedor-interno * {
+    margin-top: 10px;
+}
+
+/* last-child => Vamos a obtener el ultimo elemento
+5 <p> */
+/* .contenedor-interno:last-child {
+    margin-bottom: 20px;
+} */
+
+img {
+    width: 345px;
+    border-radius: 16px;
+}
+
+h4 {
+    width: 60%;
+    margin: auto;
+}
+
+p {
+    width: 60%;
+    margin: auto;
+    margin-bottom: 20px;
+}
