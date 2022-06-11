@@ -34,16 +34,16 @@ i {
     font-style: normal;
 }
 
-h5 {
+span:first-child {
     color: hsl(178, 100%, 50%);
     /* border: solid; */
 }
 
-.inline {
+/* .inline {
     display: inline;
-}
+} */
 
-p {
+p, span:last-child {
     color: hsl(215, 51%, 70%);
     /* border: solid; */
 }
@@ -66,9 +66,10 @@ p {
 }
 
 .signs {
-    display: flex;
-    justify-content: space-between;
+    /* display: flex;
+    justify-content: space-between; */
     padding-bottom: 20px;
+    /* border: solid; */
 }
 
 .footer {
@@ -86,4 +87,8 @@ p {
 
 .designer {
     padding-left: 15px;
+}
+
+.right {
+    float: right;
 }

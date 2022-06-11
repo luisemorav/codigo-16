@@ -1,0 +1,98 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Fredoka', sans-serif;
+}
+
+table, tr, td {
+    /* border: solid 1px; */
+}
+
+img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 50px;
+}
+
+p, h1 {
+    color: #fff;
+}
+
+h1 {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+p {
+    font-size: 10.5px;
+    font-weight: 300;
+}
+
+.card td:nth-child(2) p:first-child {
+    margin-bottom: 0;
+}
+
+.card td:nth-child(2) p:last-child {
+    margin-top: 0;
+}
+
+.content {
+    width: 450px;
+    height: 100vh;
+}
+
+.searcher {
+    padding-bottom: 10px;
+}
+
+.card {
+    background-color: #22326b;
+    border-radius: 10px;
+    height: 110px;
+}
+
+.card tr td:first-child {
+    text-align: center;
+    width: 150px;
+}
+
+.card tr td:last-child {
+    vertical-align: top;
+    width: 120px;
+}
+
+.card tr td:nth-child(2) {
+    vertical-align: top;
+}
+
+.background {
+    width: 100vw;
+    background-color: #1c253f;
+}
+
+.button {
+    background-color: #0d6efd;
+    font-family: 'Fredoka', sans-serif;
+    color: #fff;
+    border-style: none;
+    width: 120px;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+.button:hover {
+    background-color: #0d85fd;
+}
+
+.texto {
+    font-family: 'Fredoka', sans-serif;
+    padding: 5px 10px;
+    border-radius: 3px;
+    border-style: none;
+    width: 300px;
+}
+
+.width100 {
+    width: 100%;
+}
