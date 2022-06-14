@@ -1,0 +1,67 @@
+.container {
+    /* cuando usamos felx */
+    display: flex;
+    height: 100vh;
+    border: solid 3px;
+
+    /* al activar flex estamos activando sus propiedades */
+    /* tiene 6 posibles valores */
+    /* flex-start:  alinea los elementos al lado izquierdo*/
+    /* center: al centro */
+    /* flex-end: a la derecha */
+
+    /* estos 3 separan los elementos de forma horozontal con la diferencia
+    que el margen que tiene cada uno es mayor */
+    /* space-between */
+    /* space-evenly */
+    /*  */
+    justify-content: space-around;
+
+    /* se basa en la altura, si un elemento no tiene altura no funciona */
+    align-items: center;
+
+    /* tambien permite controlar la direccion de los elementos */
+    /* column ha transformado la direccion de los elemento sen columna */
+    /* Nota: por defecto la propiedad de los hijos es row */
+    flex-direction: column;
+}
+
+.container div {
+    border: solid red 3px;
+    height: 300px;
+    width: 20%;
+}
+
+.container-2 {
+
+    display: flex;
+    height: 100vh;
+    border: solid green 3px;
+    justify-content: space-around;
+    /* otra propiedad es flex-direction: 
+    - row-reverse
+    - column-reverse 
+    */
+}
+
+.container-2 div {
+    height: 30px;
+    width: 20%;
+    border: solid orange 3px;
+}
+
+.container-3 {
+
+    display: flex;
+    height: 100vh;
+    border: solid rgb(169, 25, 126) 3px;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column-reverse;
+}
+
+.container-3 div {
+    height: 30px;
+    width: 20%;
+    border: solid rgb(24, 103, 36) 3px;
+}
