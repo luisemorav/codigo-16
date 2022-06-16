@@ -96,3 +96,66 @@ section p {
 .child-four {
     background: url(./images/bag.svg);
 }
+
+/* Responsive */
+
+@media only screen and (max-width: 600px) {
+
+    .small-child {
+        width: 35%;
+    }
+
+    .big-child {
+        width: 35%;
+    }
+
+    .container2 {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Tags */
+
+.container2 {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.imgtag {
+    margin: 10px;
+}
+
+.imgtag div {
+    width: 297px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.imgtag img {
+    width: 297px;
+}
+
+.imgtag p {
+    width: 297px;
+    font-size: 12px;
+    font-weight: 100;
+}
+
+.price {
+    font-size: 16px;
+    font-weight: 700;
+    color: black;
+}
+
+.price span {
+    color: #374151;
+    text-decoration: line-through;
+    margin-left: 10px;
+}
+
+.add {
+    color: #374151;
+}
