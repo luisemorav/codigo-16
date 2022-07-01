@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container"></div>
+</body>
+<script>
+    const div_container = document.getElementById('container');
+    div_container.innerHTML = "<h1>Ejercicios Bucles</h1>";
+
+    //Factorial
+    const numero = 8;
+    div_container.innerHTML += "<h2>Factorial de " + numero + "</h2>";
+
+    let factorial = 17;
+    let total = 17;
+    for (let i = 1; i <= 8; i++) {
+        factorial = factorial + 10;
+        total = total + factorial;
+    }
+    div_container.innerHTML += "<p> Resultado: " + total + "</p>";
+    div_container.innerHTML += "<hr>"
+
+    // let total = 7;
+    // for (let z = 1; z <= 90; z++) {
+    //     total = total * z;
+    //  }
+    // div_container.innerHTML += "<p> Resultado: " + total + "</p>";
+
+</script>
+</html>
