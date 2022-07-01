@@ -12,11 +12,15 @@ class Task {
   done() {
     this.status = "done";
     this.done_at = new Date(); // Fecha y hora actual.
+    // Agrega clase done
+    document.querySelector("#" + this.id).classList.add('done');
   }
 
   delete() {
     this.status = "delete";
     this.deleted_at = new Date();
+    //Agrega clase delete
+    document.querySelector("#" + this.id).classList.add('delete');
   }
 
   createElement() {
@@ -26,7 +30,7 @@ class Task {
     element.innerHTML = `
         <input type="checkbox" onChange="checkTask(this);"/>
         <span>${this.text}</span>
-        <a>❌</a>
+        <a onclick="deleteTask(this);">❌</a>
         `;
     return element;
   }
@@ -59,6 +63,15 @@ function addTask() {
 function checkTask(checkbox) {
     if (checkbox.checked) {
         const task_id = checkbox.parentElement.id;
-        console.log(task_id); // Para imprimir en la consola el id
+        //console.log(task_id); // Para imprimir en la consola el id
+        const task = arrayTasks.find(task => task.id == task_id);
+        task.done();
+        checkbox.setAttribute('disabled', true);
     }
+}
+
+function deleteTask(anchor) {
+    const task_id = anchor.parentElement.id;
+    const task = arrayTasks.find(task => task.id == task_id);
+    task.delete();
 }
