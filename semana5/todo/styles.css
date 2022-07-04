@@ -12,17 +12,24 @@
     border-radius: 10px;
 }
 
+#settings {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
 .task {
     padding: 10px;
     margin: 10px;
     border-radius: 10px;
     font-size: 1rem;
     cursor: pointer;
+    display: flex;
+    justify-content: space-between;
 }
 
 .task > a {
     font-size: 0.8rem;
-    float: right;
+    /* float: right; */
 }
 
 .task > input {
@@ -38,11 +45,11 @@
     background-color: #51b1d4;
 }
 
-.done > span {
+.done > div > span {
     font-style: italic;
 }
 
-.done > a {
+.done > div > a {
     display: none;
 }
 
@@ -50,18 +57,18 @@
     background-color: #338dad;
 }
 
-.delete > input {
+.delete > div > input {
     display: none;
 }
 
-.delete > span {
+.delete > div > span {
     margin-left: 30px;
     color: #aaa;
     font-style: italic;
     text-decoration: line-through red;
 }
 
-.delete > a {
+.delete > div > a {
     display: none;
 }
 
