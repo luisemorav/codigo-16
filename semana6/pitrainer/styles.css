@@ -136,6 +136,7 @@ input[type="button"]:disabled {
   padding: 10px;
   display: block;
   text-align: center;
+  display: none;
 }
 
 #h3_sattempts {
@@ -148,4 +149,33 @@ input[type="button"]:disabled {
 
 #h3_score {
   color: blue;
+}
+
+/* History */
+
+#history {
+  display: none;
+}
+
+#history > table {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px #ddd solid;
+}
+
+#history th,
+#history td {
+  padding: 10px;
+  text-align: center;
+}
+
+#history td {
+  padding: 10px;
+  text-align: center;
+  border-top: 1px #ddd solid;
+}
+
+#history input {
+  margin-top: 10px;
+  float: right;
 }

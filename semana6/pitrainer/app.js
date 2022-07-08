@@ -4,6 +4,8 @@ const UserName = document.querySelector("#username");
 const btnStart = document.querySelector("#start");
 const Call = document.querySelector("#call");
 const div_game = document.querySelector("#game");
+const div_score = document.querySelector("#score");
+let user = null;
 
 // UserName.onkeyup = function () {
 //     if (this.value !== "") {
@@ -33,12 +35,21 @@ UserName.addEventListener("keyup", function () {
 //     Call.style.display = "block";
 // }
 
+//! Para poder recuperar un dato de Local Storage podemos usar lo funcion getItem
+
+// console.log("username", localStorage.getItem("user_name"))
+
 btnStart.addEventListener("click", function () {
   Call.innerText = "Hello " + UserName.value + ", let's play!";
   Call.style.display = "block";
+  // creamos username en local storage
+  user = new User(UserName.value);
   UserName.disabled = true;
   this.disabled = true;
   div_game.style.display = "flex"; //Muestra seccion Game
+  div_score.style.display = "block";
+  //! LOCAL STORAGE
+  // localStorage.setItem("user_name", UserName.value);
 });
 
 //? GAME:
@@ -55,7 +66,7 @@ let score = 0;
 let last_attempt = null;
 
 const container_modal = document.querySelector(".container-modal");
-const lost_container = document.querySelector(".lost-container")
+const lost_container = document.querySelector(".lost-container");
 const container = document.querySelector("#container");
 
 const input_pi = document.querySelector("#user_pi");
@@ -66,7 +77,7 @@ const h3_sattempts = document.querySelector("#h3_sattempts");
 const h3_fattempts = document.querySelector("#h3_fattempts");
 const h3_score = document.querySelector("#h3_score");
 const h3_score_finish = document.querySelector("#h3_score_finish");
-const reiniciar = document.querySelector("#btn-reiniciar")
+const reiniciar = document.querySelector("#btn-reiniciar");
 
 input_pi.addEventListener("keyup", function () {
   this.value = "";
@@ -88,8 +99,7 @@ input_pi.addEventListener("keydown", function (evt) {
   ) {
     div_game.style.backgroundColor = "red";
     fattempts++;
-    showModal(fattempts);
-    
+    showModal();
   } else {
     // SI paso las reglas
     if (position > 0) {
@@ -112,8 +122,6 @@ input_pi.addEventListener("keydown", function (evt) {
     div_game.style.backgroundColor = "transparent";
   }, 250);
 
-  this.value = "";
-
   //? SCORE
 
   h3_attempts.querySelector("span").innerText = attempts;
@@ -132,13 +140,23 @@ function calcScore(now_attempt) {
   score += Math.max(attempt_score, -1);
 }
 
-function showModal(fattempts) {
-  if (fattempts === 10) {
+function showModal() {
+  if (fattempts >= 10) {
     // Activamos los estilos
     container_modal.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
     lost_container.style.display = "block";
     container.style.zIndex = -1;
+    input_pi.disabled = true;
     h3_score_finish.querySelector("span").innerText = score.toFixed(2);
+    // Crea el usuario y lo agrega al Local Storage
+    if (user !== null) {
+      user.score = score;
+      user.attempts = attempts;
+      user.fattempts = fattempts;
+      user.sattempts = sattempts;
+      user.gameover();
+      addUserToLocalStorage(user);
+    }
   }
 }
 
