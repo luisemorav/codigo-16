@@ -14,8 +14,8 @@ body {
   /* background-color: rgba(0, 0, 0, 0.5); */
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  position: relative;
+  /* height: 100vh; */
+  /* position: relative; */
 }
 
 .lost-container {
@@ -49,7 +49,7 @@ body {
 #container {
   width: 600px;
   margin: 30px auto;
-  position: absolute;
+  /* position: absolute; */
   /* z-index: -1; */
 }
 
@@ -157,25 +157,26 @@ input[type="button"]:disabled {
   display: none;
 }
 
-#history > table {
+table {
   width: 100%;
   border-radius: 10px;
   border: 1px #ddd solid;
+  
 }
 
-#history th,
-#history td {
+th,
+td {
   padding: 10px;
   text-align: center;
 }
 
-#history td {
+tr {
   padding: 10px;
   text-align: center;
   border-top: 1px #ddd solid;
 }
 
-#history input {
+input {
   margin-top: 10px;
   float: right;
 }

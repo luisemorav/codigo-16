@@ -144,18 +144,50 @@ function showModal() {
   if (fattempts >= 10) {
     // Activamos los estilos
     container_modal.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+    container_modal.style.position = "relative";
+    document.body.style.overflow = "hidden";
+    container_modal.style.height = "100vh";
+    container.style.position = "absolute";
     lost_container.style.display = "block";
     container.style.zIndex = -1;
     input_pi.disabled = true;
     h3_score_finish.querySelector("span").innerText = score.toFixed(2);
     // Crea el usuario y lo agrega al Local Storage
     if (user !== null) {
-      user.score = score;
-      user.attempts = attempts;
-      user.fattempts = fattempts;
-      user.sattempts = sattempts;
-      user.gameover();
-      addUserToLocalStorage(user);
+      // caso juanito
+      const user_index = users.findIndex(
+        (user_find) => user_find.username === user.username
+      );
+
+      // juanito no existe en el array de usuarios por ende la funcion findIndex retorna
+      // -1, porque no encontro a la persona
+
+      // nota: Si findIndex no encuentra lo busquedo retornara -1 porque no encontro
+      // ni una posicion
+      if (user_index === -1) {
+        // si entra al if el usuario no existe
+        user.games.push({
+          score: score,
+          attempts: attempts,
+          sattempts: sattempts,
+          fattempts: fattempts,
+          gameover_at: user.gameover(),
+        });
+
+        addUserToLocalStorage(user);
+      } else {
+        // si entra ya exister
+        users[user_index].games.push({
+          score: score,
+          attempts: attempts,
+          sattempts: sattempts,
+          fattempts: fattempts,
+          gameover_at: user.gameover(),
+        });
+
+        updateUserLocalStorage(users);
+        // debemos agregar este dato a locastorage
+      }
     }
   }
 }

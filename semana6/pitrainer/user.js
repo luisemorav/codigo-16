@@ -1,22 +1,16 @@
 class User {
   constructor(_username) {
     this.username = _username;
-    this.created_at = new Date();
-    this.attempts = 0;
-    this.sattempts = 0;
-    this.fattempts = 0;
-    this.score = 0;
-    this.gameover_at = null;
+    this.games = [];
   }
 
   gameover() {
-    this.gameover_at = new Date();
+    return new Date();
   }
-
 }
 
 // Arreglo de usuarios
-let users = null;
+let users = [];
 
 // const u1 = new User("brunodiaz");
 // u1.score = 500;
@@ -57,6 +51,13 @@ function addUserToLocalStorage(user) {
     localStorage.setItem("pitrainer.users", JSON.stringify(users))
 }
 
+function updateUserLocalStorage(users) {
+  localStorage.removeItem("pitrainer.users");
+  localStorage.setItem("pitrainer.users", JSON.stringify(users));
+}
+
+
+
 const button_clear = document.querySelector("#clear");
 
 if (users.length !== 0) {
@@ -73,19 +74,88 @@ button_clear.addEventListener('click', function () {
 });
 
 function createTableHistoric() {
-  const table_history = document.querySelector("#history > table");
+  // const table_history = document.querySelector("#history > table");
+  const container_history = document.querySelector("#history_container");
 
-  users.forEach(function (user) {
-    // Creo un node object llamado ROW
-    const row = document.createElement("tr");
-    // Personalizado el node:
-    row.innerHTML = `
-        <td>${user.username}</td>
-        <td>${user.score.toFixed(2)}</td>
-        <td>${user.sattempts}</td>
-        <td>${user.gameover_at.toLocaleString()}</td>
+  users.forEach((user) => {
+    // crear los nombres
+    const h4 = document.createElement("h4");
+    h4.innerText = user.username;
+
+    container_history.append(h4);
+    // crear la table
+    const table = document.createElement("table");
+    const thead = document.createElement("thead");
+
+    thead.innerHTML = `
+        <tr>
+            <th>Score</th>
+            <th>Attempts</th>
+            <th>✅ </th>
+            <th>❌ </th>
+            <th>Game Over</th>
+        </tr>    
         `;
-    // Lo agrega como un hijo de la tabla
-    table_history.appendChild(row);
+
+      const tbody = document.createElement("tbody");
+
+      // Entonces debemos iterar user.games
+      user.games.forEach(game => {
+        tbody.innerHTML += `
+          <tr>
+            <td>${game.score.toFixed(2)}</td>
+            <td>${game.attempts}</td>
+            <td>${game.sattempts}</td>
+            <td>${game.fattempts}</td>
+            <td>${new Date(game.gameover_at).toLocaleString("es-PE", {
+              weekday: "short",
+              year: "2-digit",
+              month: "short",
+              day: "2-digit",
+              hour: "2-digit",
+              minute: "2-digit",
+            })}</td>
+          </tr>
+        `;
+      })
+
+    table.append(thead);
+    table.append(tbody);
+    container_history.append(table);
   });
+
+  // users.forEach(function (user) {
+  //   // Creo un node object llamado ROW
+  //   const row = document.createElement("tr");
+  //   const gameover_at = new Date(user.gameover_at);
+  //   // Personalizo el node:
+  //   row.innerHTML = `
+  //       <td>${user.username}</td>
+
+  //       `;
+
+  // <td>${user.score.toFixed(2)}</td>
+  // <td>${user.success_attempts}</td>
+  // <td>${gameover_at.toLocaleDateString("es-PE", {
+  //   weekday: "short",
+  //   year: "numeric",
+  //   month: "long",
+  //   day: "numeric",
+  //   hour: "numeric",
+  //   minute: "numeric",
+  // })}</td>
+  // Lo agrega como un hijo de la tabla:
+  // table_history.append(row);
+  // });
+}
+
+const input_search = document.querySelector("#input-search");
+const btn_search = document.querySelector("#btn-search");
+
+btn_search.onclick = function() {
+  const textSearch = input_search.value;
+  if (textSearch === "") {
+    alert("Debe escribir un Usuario para iniciar la busqueda");
+    return;
+  }
 }
