@@ -11,6 +11,15 @@
       integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
       crossorigin="anonymous"
     />
+    <!-- get Noty via CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.css"
+      integrity="sha512-NXUhxhkDgZYOMjaIgd89zF2w51Mub53Ru3zCNp5LTlEzMbNNAjTjDbpURYGS5Mop2cU4b7re1nOIucsVlrx9fA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
     <title>Todo List</title>
   </head>
   <style>
@@ -48,10 +57,12 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link active" aria-current="page" href="?filter="
+                >Home</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+              <a class="nav-link" href="#">Reiniciar</a>
             </li>
             <li class="nav-item dropdown">
               <a
@@ -62,18 +73,32 @@
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Dropdown
+                Filtros
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
-                  <a class="dropdown-item" href="#">Action</a>
+                  <a id="filter_todo" class="dropdown-item" href="?filter=todo"
+                    >TODO</a
+                  >
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">Another action</a>
+                  <a id="filter_done" class="dropdown-item" href="?filter=done"
+                    >DONE</a
+                  >
+                </li>
+                <li>
+                  <a
+                    id="filter_delete"
+                    class="dropdown-item"
+                    href="?filter=delete"
+                    >DELETE</a
+                  >
                 </li>
                 <li><hr class="dropdown-divider" /></li>
                 <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
+                  <a id="filter_all" class="dropdown-item" href="?filter=all"
+                    >ALL</a
+                  >
                 </li>
               </ul>
             </li>
@@ -98,33 +123,99 @@
     <main>
       <div class="container mt-5">
         <h1>Task List</h1>
-        <div class="row my-3">
+        <form id="form-task" class="row my-3 needs-validation" novalidate>
           <div class="col-6 col-sm-8 col-md-9 col-lg-10">
             <input
               type="text"
               id="input-task"
               autocomplete="off"
               placeholder="Ingresa el nombre de la tarea"
+              required
               class="form-control"
             />
+            <div class="invalid-feedback">Escriba una tarea</div>
           </div>
           <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-            <input
-              class="btn btn-outline-primary"
-              type="button"
-              id="btn-task"
-              value="Crear"
-            />
+            <button class="btn btn-outline-primary" type="submit">Crear</button>
           </div>
-        </div>
+        </form>
         <section id="section-task"></section>
+        <!-- vamos a poner el detalle de la tarea -->
+        <section
+          id="section-detail-task"
+          class="row d-flex justify-content-center"
+        ></section>
       </div>
     </main>
+    <!-- section del modal -->
+    <!-- <button
+      type="button"
+      class="btn btn-primary"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
+    >
+      Launch demo modal
+    </button> -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Filtro de tareas</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <!-- tabla -->
+            <div class="table-responsive">
+              <table class="table table-hover table-bordered">
+                <thead>
+                  <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Estado</th>
+                    <th>Fecha</th>
+                  </tr>
+                </thead>
+                <tbody id="tbody"></tbody>
+              </table>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
   <!-- !nota recurden que jquery debe estar antes, para que nuestro index.js pueda
   !usar las funciones de jquery -->
   <script src="./jquery.js"></script>
-  <!-- <script src="https://code.jquery.com/jquery-3.6.0.js"></script> -->
+  <!-- Libraries -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"
+    integrity="sha512-lOrm9FgT1LKOJRUXF3tp6QaMorJftUjowOWiDcG5GFZ/q7ukof19V0HKx/GWzXCdt9zYju3/KhBNdCLzK8b90Q=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+
+  <!-- Propios js -->
   <script src="./task.js"></script>
   <script src="./index.js"></script>
   <script
