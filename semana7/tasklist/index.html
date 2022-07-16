@@ -19,6 +19,14 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <!-- get FA via CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
     <title>Todo List</title>
   </head>
@@ -62,7 +70,9 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Reiniciar</a>
+              <a class="nav-link" href="javascript: resetStorage();"
+                >Reiniciar</a
+              >
             </li>
             <li class="nav-item dropdown">
               <a
@@ -120,8 +130,8 @@
         </div>
       </div>
     </nav>
-    <main>
-      <div class="container mt-5">
+    <main class="row">
+      <div class="container mt-5 col-md-7">
         <h1>Task List</h1>
         <form id="form-task" class="row my-3 needs-validation" novalidate>
           <div class="col-6 col-sm-8 col-md-9 col-lg-10">
@@ -129,23 +139,45 @@
               type="text"
               id="input-task"
               autocomplete="off"
-              placeholder="Ingresa el nombre de la tarea"
+              placeholder="Nueva tarea..."
               required
               class="form-control"
             />
             <div class="invalid-feedback">Escriba una tarea</div>
           </div>
           <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-            <button class="btn btn-outline-primary" type="submit">Crear</button>
+            <button class="btn btn-outline-primary" type="submit">
+              <i class="fa-solid fa-plus"></i>&nbsp;Add
+            </button>
           </div>
         </form>
-        <section id="section-task"></section>
+        <section id="section-task" class="container"></section>
         <!-- vamos a poner el detalle de la tarea -->
         <section
           id="section-detail-task"
           class="row d-flex justify-content-center"
         ></section>
       </div>
+      <!-- Seccion de graficos -->
+      <section id="section-charts" class="col-md-4 mt-5">
+        <!-- <canvas id="bar-chart" width="400" height="200"></canvas> -->
+        <select name="select-chart" id="select-chart" class="form-select">
+          <option value="" selected disabled>Selecione un grafico</option>
+          <option value="pie">Pie</option>
+          <option value="doughnut">Doughnut</option>
+          <option value="bar">Bar</option>
+          <option value="line">Line</option>
+        </select>
+        <div class="mt-5">
+          <canvas id="task-chart-report"></canvas>
+        </div>
+        <div class="mt-5 d-grid">
+          <button class="btn btn-primary" id="btn-export-chart">
+            Exportar Grafico
+          </button>
+          <!-- <a download="chart.jpeg" href="" id="btn-download-chart">Descargar</a> -->
+        </div>
+      </section>
     </main>
     <!-- section del modal -->
     <!-- <button
@@ -209,18 +241,22 @@
   <script src="./jquery.js"></script>
   <!-- Libraries -->
   <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"
+  ></script>
+  <script
     src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"
     integrity="sha512-lOrm9FgT1LKOJRUXF3tp6QaMorJftUjowOWiDcG5GFZ/q7ukof19V0HKx/GWzXCdt9zYju3/KhBNdCLzK8b90Q=="
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
   ></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
 
   <!-- Propios js -->
   <script src="./task.js"></script>
   <script src="./index.js"></script>
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-    crossorigin="anonymous"
-  ></script>
+  <script src="./chart-task.js"></script>
 </html>

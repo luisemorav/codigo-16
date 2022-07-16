@@ -45,9 +45,9 @@ function taskToHtml(task) {
     </div>
   </div>
   <div class='col-6 col-sm-4 col-md-3'>
-    <button class='btn btn-light' role="edit" onclick="editTask(this)">✏️</button>
-    <button class='btn btn-light' role="show" onclick="showTask(${task.id})">👁</button>
-    <button class='btn btn-dark' role="delete" onclick="deleteTask(this)">❌</button>
+    <button class='btn btn-dark' role="edit" onclick="editTask(this)"><i class="fa-solid fa-pencil text-warning"></i></button>
+    <button class='btn btn-dark' role="show" onclick="showTask(${task.id})"><i class="fa-solid fa-eye"></i></button>
+    <button class='btn btn-dark' role="delete" onclick="deleteTask(this)"><i class="fa-solid fa-trash-can text-danger"></i></button>
   </div>
   `);
   if (task.status == "done") {
@@ -55,7 +55,7 @@ function taskToHtml(task) {
       .find("input[type='checkbox'")
       .prop("disabled", true)
       .prop("checked", true);
-    div_task.addClass("bg-info bg-opacity-75 rounded text-white fst-italic");
+    div_task.addClass("bg-success bg-opacity-75 rounded text-white fst-italic");
     div_task.find("button").each(function () {
       if ($(this).attr("role") == "show") return;
       $(this).hide();
@@ -66,6 +66,8 @@ function taskToHtml(task) {
     div_task.find("label").addClass("text-decoration-line-through");
     div_task.find("button").hide();
   }
+
+  updateCalcChart();
   return div_task;
 }
 

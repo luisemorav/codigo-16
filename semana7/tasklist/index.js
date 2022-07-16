@@ -29,7 +29,7 @@ $(function () {
         case "done":
           $("#filter_done").addClass("active");
           break;
-        case "done":
+        case "delete":
           $("#filter_delete").addClass("active");
           break;
         default:
@@ -37,6 +37,18 @@ $(function () {
           break;
       }
     }
+
+    // updateCalcChart();
+  }
+
+  if (sectionTask.html() == "") {
+    new Noty({
+      theme: "relax",
+      type: "info",
+      layout: "center",
+      text: "No hay nada",
+      timeout: 3000,
+    }).show();
   }
 });
 
@@ -96,6 +108,14 @@ function deleteTask(element) {
   const id = div_task.data("id");
   const task = updateTask(id, "status", "delete");
   div_task.replaceWith(task.toHtml());
+
+  new Noty({
+    theme: "relax",
+    type: "error",
+    layout: "topCenter",
+    text: "Tarea borrada",
+    timeout: 3000,
+  }).show();
 }
 
 function saveTask(element) {
@@ -104,6 +124,7 @@ function saveTask(element) {
   const newText = div_task.find("input").val();
   const task = updateTask(id, "text", newText);
   div_task.replaceWith(task.toHtml());
+  Swal.fire("Tarea actualizada", `[ ${newText} ]`, "success");
 }
 
 function editTask(element) {
@@ -113,8 +134,8 @@ function editTask(element) {
         <input placeholder="editar tarea" type="text" class="form-control"/>
       </div>
       <div class='col-6 col-sm-4 col-md-3'>
-        <button class="btn btn-dark" onclick="saveTask(this)">✅</button>
-        <button class="btn btn-dark" onclick="resetTask(this)">↩️</button>
+        <button class="btn btn-dark" onclick="saveTask(this)"><i class="fa-solid fa-floppy-disk"></i></button>
+        <button class="btn btn-dark" onclick="resetTask(this)"><i class="fa-solid fa-xmark"></i></button>
       </div>
   `);
 }
@@ -140,7 +161,7 @@ function showTask(id) {
         ${task.status}
         </div>
          <div class="card-text">
-        ${task.created_at}
+        ${task.created_at.toLocaleString()}
         </div>
       </div>
     </div>
@@ -157,4 +178,28 @@ function doneTask(element, id) {
 function addTaskToSection(task) {
   const div_task = task.toHtml();
   div_task.appendTo(sectionTask).hide().fadeIn(1000);
+}
+
+function resetStorage() {
+  Swal.fire({
+    title: "Estás seguro?",
+    text: "(estas a punto de borrar el localStorage...)",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Si, borrar!",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      localStorage.removeItem("tasks");
+      Swal.fire(
+        "localStorage se borró!",
+        "Todas las tareas se han eliminado",
+        "success"
+      );
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
+    }
+  });
 }
