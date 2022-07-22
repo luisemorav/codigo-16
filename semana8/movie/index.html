@@ -13,10 +13,27 @@
       crossorigin="anonymous"
     />
   </head>
+  <style>
+    .into-photo {
+      position: relative;
+    }
+
+    .into-photo span {
+      position: absolute;
+      width: 100%;
+      border-radius: 4px;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  </style>
   <body>
     <main class="m-5">
       <h1>Lista de Peliculas</h1>
-      <div class="row row-cols-1 row-cols-lg-5" id="container-movies"></div>
+      <div class="row row-cols-1 row-cols-lg-5" id="container-movies">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
     </main>
   </body>
   <!-- JavaScript Bundle with Popper -->
